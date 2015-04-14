@@ -1,0 +1,55 @@
+<ion-view hide-nav-bar="false">
+
+  <ion-nav-title>
+    <img src="img/avail.png" ng-click="modal.show()" ng-show="isAvailable()"/>
+    <img src="img/busy.png" ng-click="modal.show()" ng-show="!isAvailable()"/>
+    {{curUser.status}}
+  </ion-nav-title>
+
+  <ion-nav-buttons class="primary">
+    <button class="button button-clear button-positive icon ion-navicon"></button>
+<!--     <button class="button icon ion-search b1"></button> -->
+<!--     <img class="status" src="img/avail.png"/> -->
+<!--     <i class="icon ion-search placeholder-icon"></i> -->
+    <button class="button button-clear button-positive icon ion-ios-plus-empty"></button>
+<!--     <button ng-show="isAvailable()" class="button button-clear button-balanced icon ion-ios-checkmark-outline b3"></button> -->
+  <!--   <button ng-show="isAvailable()" class="button button-button-balanced icon src="res/ios/icon.png"></button> -->
+<!--     <button ng-show="!isAvailable()" class="button button-clear button-assertive icon ion-ios-minus"></button> -->
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive" ng-click="">Select</button>
+  </ion-nav-buttons>
+
+  <ion-header class="bar bar-subheader">
+    <div class="button-bar">
+      <!-- <a class="button" ng-class="clicked ? 'button-positive': 'button-assertive'" ng-click="onClicked()">{{clicked}}</a> -->
+      <a class="button">All</a>
+       <a class="button">People</a>
+      <a class="button">Groups</a>
+      <a class="button">Available</a>
+    </div>
+  </ion-header>
+
+  <ion-content class="has-subheader">
+
+    <ion-list>
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="people.name" placeholder="Search"></input>
+      </label>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}
+        <img class="phone" src="img/phone.png" />
+        </h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

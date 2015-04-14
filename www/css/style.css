@@ -1,0 +1,21 @@
+/* Empty. Add your own CSS if you like */
+
+/* Giving search input on Contacts page a margin so the header doesn't cover it
+   Only a temporary solution; won't look the same on devices w/diff resolutions
+   Use em as unit instead
+ */
+.item-input {
+	margin-top: 65px;
+}
+
+.submenu {
+	margin-top: 22px;
+}
+
+.item-input {
+	margin-top: -2px;
+}
+
+.phone {
+	border: 
+}

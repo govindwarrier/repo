@@ -1,0 +1,27 @@
+<ion-view>
+  <ion-nav-title>
+    <img src="img/avail.png" ng-click="modal.show()" ng-show="isAvailable()"/>
+    <img src="img/busy.png" ng-click="modal.show()" ng-show="!isAvailable()"/>
+    {{curUser.status}}
+  </ion-nav-title>
+
+  <ion-content class="padding">
+    <div class="card">
+      <a class="item item-icon-right">
+        <img class="icon" src="img/scan_on.png" ng-show="curUser.scanOn" ng-click="toggleScan()" />
+        <img class="icon" src="img/scan_off.png" ng-show="!curUser.scanOn" ng-click="toggleScan()" />        
+        {{header || 'Hello'}}
+      </a>
+      <div class="item">
+        <button class="button button-large button-positive button-outline" ng-click="startCall()">Push to talk</button>
+      </div>
+    </div>
+
+    <div class="list">
+      <a class="item item-icon-right" ng-repeat="group in groups" ng-click="sendGroup(group)">
+        <i class="icon ion-navicon"></i>
+        {{group}}
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
